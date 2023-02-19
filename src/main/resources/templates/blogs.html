@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section id="section-1">
+      <!-- NAV -->
+      <nav>
+        <div class="nav-wrapper">
+          <div>
+            <img src="./assets/logo.svg" alt="logo" />
+          </div>
+
+          <div class="nav-links-wrapper">
+            <ul class="m-0 p-0">
+              <li>
+                <a href="/"> Home </a>
+              </li>
+              <li>
+                <a href="/blogs"> More Blogs </a>
+              </li>
+              <li>
+                <a href="/about"> About </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button class="action-btn">Subscribe</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- HEADER -->
+      <header>
+        <div class="header-wrapper blog">
+          <h6></h6>
+          <h1>All Blogs</h1>
+          <h4>The latest news to drive your business</h4>
+
+          <input class="search-input">
+        </div>
+      </header>
+
+      <!-- ARTICLES -->
+      <div class="blog-list-wrapper">
+        <div class="blog-card" th:each="post: ${posts}">
+          <a th:href="'/blogs/' + ${post.url}">
+            <article>
+              <div class="img-wrapper">
+                <img th:src="${post.featuredImage}" alt="about" />
+              </div>
+              <div class="content">
+                <div class="type-bubble"> Blog </div>
+                <span> &lt; 4 min to read</span>
+                <h3 th:text="${post.title}">The Best thing in the World</h3>
+
+                <div class="author-wrapper">
+                  <div class="author-img-wrapper" style="background: grey;">
+                    <img th:src="${post.author.profileImage}" onerror="this.style.display='none';"  alt="profile image" />
+                  </div>
+                  <div class="author-desc-wrapper">
+                    <h4>
+                      <span th:text="${post.author.firstName}"></span> <span th:text="${post.author.lastName}"></span>
+                    </h4>
+                    <p>18th Feb, 2022</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+
+<!--        <div class="blog-card"> -->
+<!--          <a href="./blog.html">-->
+<!--            <article class="main">-->
+<!--              <div class="img-wrapper">-->
+<!--                <img src="./assets/p1.jpg" alt="about" />-->
+<!--              </div>-->
+<!--              <div class="content">-->
+<!--                <div class="type-bubble">Finance</div>-->
+<!--                <span> 8 min to read</span>-->
+<!--                <h3>The Best thing in the World</h3>-->
+
+<!--                <div class="author-wrapper">-->
+<!--                  <div class="author-img-wrapper">-->
+<!--                    <img src="./assets/profile.png" alt="profile image" />-->
+<!--                  </div>-->
+<!--                  <div class="author-desc-wrapper">-->
+<!--                    <h4>My Profile</h4>-->
+<!--                    <p>18th Feb, 2022</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="blog-card"> -->
+<!--          <a href="./blog.html">-->
+<!--            <article class="main">-->
+<!--              <div class="img-wrapper">-->
+<!--                <img src="./assets/p1.jpg" alt="about" />-->
+<!--              </div>-->
+<!--              <div class="content">-->
+<!--                <div class="type-bubble">Finance</div>-->
+<!--                <span> 8 min to read</span>-->
+<!--                <h3>The Best thing in the World</h3>-->
+
+<!--                <div class="author-wrapper">-->
+<!--                  <div class="author-img-wrapper">-->
+<!--                    <img src="./assets/profile.png" alt="profile image" />-->
+<!--                  </div>-->
+<!--                  <div class="author-desc-wrapper">-->
+<!--                    <h4>My Profile</h4>-->
+<!--                    <p>18th Feb, 2022</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="blog-card"> -->
+<!--          <a href="./blog.html">-->
+<!--            <article class="main">-->
+<!--              <div class="img-wrapper">-->
+<!--                <img src="./assets/p1.jpg" alt="about" />-->
+<!--              </div>-->
+<!--              <div class="content">-->
+<!--                <div class="type-bubble">Finance</div>-->
+<!--                <span> 8 min to read</span>-->
+<!--                <h3>The Best thing in the World</h3>-->
+
+<!--                <div class="author-wrapper">-->
+<!--                  <div class="author-img-wrapper">-->
+<!--                    <img src="./assets/profile.png" alt="profile image" />-->
+<!--                  </div>-->
+<!--                  <div class="author-desc-wrapper">-->
+<!--                    <h4>My Profile</h4>-->
+<!--                    <p>18th Feb, 2022</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="blog-card"> -->
+<!--          <a href="./blog.html">-->
+<!--            <article class="main">-->
+<!--              <div class="img-wrapper">-->
+<!--                <img src="./assets/p1.jpg" alt="about" />-->
+<!--              </div>-->
+<!--              <div class="content">-->
+<!--                <div class="type-bubble">Finance</div>-->
+<!--                <span> 8 min to read</span>-->
+<!--                <h3>The Best thing in the World</h3>-->
+
+<!--                <div class="author-wrapper">-->
+<!--                  <div class="author-img-wrapper">-->
+<!--                    <img src="./assets/profile.png" alt="profile image" />-->
+<!--                  </div>-->
+<!--                  <div class="author-desc-wrapper">-->
+<!--                    <h4>My Profile</h4>-->
+<!--                    <p>18th Feb, 2022</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="blog-card"> -->
+<!--          <a href="./blog.html">-->
+<!--            <article class="main">-->
+<!--              <div class="img-wrapper">-->
+<!--                <img src="./assets/p1.jpg" alt="about" />-->
+<!--              </div>-->
+<!--              <div class="content">-->
+<!--                <div class="type-bubble">Finance</div>-->
+<!--                <span> 8 min to read</span>-->
+<!--                <h3>The Best thing in the World</h3>-->
+
+<!--                <div class="author-wrapper">-->
+<!--                  <div class="author-img-wrapper">-->
+<!--                    <img src="./assets/profile.png" alt="profile image" />-->
+<!--                  </div>-->
+<!--                  <div class="author-desc-wrapper">-->
+<!--                    <h4>My Profile</h4>-->
+<!--                    <p>18th Feb, 2022</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </a>-->
+<!--        </div>-->
+
+      </div>
+    </section>
+    <footer>&copy; <span id="date"></span> Obisike Treasure</footer>
+  </body>
+</html>
+<script>
+  document.getElementById("date").innerHTML = new Date().getFullYear();
+</script>

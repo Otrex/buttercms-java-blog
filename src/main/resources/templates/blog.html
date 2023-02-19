@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section id="section-1">
+      <!-- NAV -->
+      <nav>
+        <div class="nav-wrapper">
+          <div>
+            <img src="/assets/logo.svg" alt="logo" />
+          </div>
+
+          <div class="nav-links-wrapper">
+            <ul class="m-0 p-0">
+              <li>
+                <a href="/"> Home </a>
+              </li>
+              <li>
+                <a href="/blogs"> More Blogs </a>
+              </li>
+              <li>
+                <a href="/about"> About </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button class="action-btn">Subscribe</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- HEADER -->
+      <header>
+        <div class="header-wrapper blog">
+          <h6><span th:text="${post.author.firstName} + ' ' + ${post.author.lastName}" ></span></h6>
+          <h1 th:text="${post.title}">How to Hate Many People</h1>
+          <h4 th:text="${post.summary}">The latest news to drive your business</h4>
+
+          <span th:text="${post.url}" class="tags">Food</span>
+        </div>
+      </header>
+
+      <!-- ARTICLES -->
+      <div class="content-wrapper">
+        <div class="cover-img-wrapper">
+          <img class="cover-img" th:src="${post.featuredImage}" alt="cover image" />
+        </div>
+
+        <div th:utext="${post.body}">
+          <p>
+            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            aliquam mauris eu consectetur maximus. Cras at lacus ac risus
+            placerat tempor at at risus. Maecenas pharetra ac augue ut
+            vulputate. Mauris id elit at turpis vulputate ultricies. Praesent in
+            ligula nec mauris tincidunt venenatis.</i>
+          </p>
+
+          <h2>Duis iaculis aliquet lectus.</h2>
+          <p>
+            Ut imperdiet sapien eu tortor vulputate, at vulputate leo bibendum.
+            Nullam lacinia turpis vitae eros viverra mattis. Morbi dictum at
+            tellus in gravida. Nulla faucibus turpis odio, id efficitur elit
+            gravida id. Suspendisse aliquet, massa eget dignissim laoreet, leo
+            massa blandit lectus, nec imperdiet magna justo vitae metus. Proin
+            sagittis purus porta urna imperdiet, quis dictum nisi egestas. Donec
+            rutrum ut nisl molestie finibus. Etiam a luctus lorem. Donec turpis
+            quam, pharetra at sapien vel, eleifend aliquet ex. Nulla in elit a
+            lacus pretium consequat.
+          </p>
+
+          <p>
+            Ut porttitordapibus velit eu dictum. In vel dapibus tortor. Quisque
+            sollicitudin egestas ullamcorper. Suspendisse urna dolor, tincidunt
+            a venenatis ac, cursus et sapien. Maecenas eu nibh metus. In hac
+            habitasse platea dictumst. Vestibulum lacinia nisl vitae consectetur
+            interdum. Vivamus ultricies turpis a mi rhoncus, convallis aliquet
+            ipsum elementum.
+          </p>
+
+          <h2>Sed posuere libero ipsum</h2>
+          <p>
+            Eu coSednsequat velit volutpat at. Maecenas auctor arcu nisl, ut
+            euismod dolor dignissim vitae. Curabitur luctus mi eros, eget
+            hendrerit mauris gravida eu. Etiam egestas ac lacus pellentesque
+            rutrum. Praesent aliquam lectus quis nisl maximus, non pulvinar odio
+            convallis. Suspendisse mollis lacus in est venenatis, nec
+            scelerisque dui rhoncus. Phasellus ut nulla ac diam sodales
+            lobortis. Sed eleifend enim nec ipsum finibus, nec finibus lorem
+            accumsan. Nulla id aliquam odio, et sollicitudin ex. Cras rutrum
+            arcu sed massa volutpat finibus. Cras quis pretium ligula. Nullam
+            pellentesque consequat turpis in varius. Donec iaculis consequat
+            sapien ut tempus.
+          </p>
+
+          <h2>Suspendisse potenti.</h2>
+          <p>
+            In eget fringilla ligula. Ut ut tincidunt ligula, a rutrum sapien.
+            Vestibulum dolor lacus, tempus et neque eget, commodo auctor enim.
+            Nullam sit amet lobortis sem. Aenean a nunc lectus. Nam mattis
+            scelerisque tincidunt. Nulla nec ipsum condimentum, viverra elit
+            vel, ultrices odio. Ut ullamcorper, velit vitae porta semper, nulla
+            justo ultrices turpis, nec finibus urna libero viverra ante. Sed
+            hendrerit diam nec tortor sodales posuere. Nulla eget iaculis elit.
+            Integer sit amet purus id urna viverra elementum eu quis erat. Duis
+            blandit neque sit amet varius tincidunt. Aenean dictum velit eu mi
+            finibus malesuada. Maecenas suscipit mauris eu blandit ullamcorper.
+          </p>
+
+          <h2>Vivamus sagittis lacus vel augue.</h2>
+          <p>
+            Pellentesque sit amet mauris purus. Mauris egestas molestie ex vel
+            gravida. Nam sem erat, tempor quis porttitor vitae, porttitor nec
+            metus. Class aptent taciti sociosqu ad litora torquent per conubia
+            nostra, per inceptos himenaeos. Mauris ultricies nisi bibendum nulla
+            euismod, nec pharetra lacus lobortis. Integer vitae lacus in leo
+            sagittis rutrum sit amet nec quam. Nullam sed diam et lectus
+            molestie tempor hendrerit in risus. Duis risus urna, imperdiet
+            condimentum neque vitae, elementum viverra odio. Nulla euismod
+            ornare luctus. Phasellus suscipit consectetur placerat. Suspendisse
+            quis mi ornare sapien porttitor pharetra at non metus. Sed ac
+            posuere augue, eu dictum nisi. Vestibulum iaculis congue risus, eget
+            dignissim justo euismod non.
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer>&copy; <span id="date"></span> Obisike Treasure</footer>
+  </body>
+</html>
+<script>
+  document.getElementById("date").innerHTML = new Date().getFullYear();
+</script>

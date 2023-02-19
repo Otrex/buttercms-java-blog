@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section id="section-1">
+      <!-- NAV -->
+      <nav>
+        <div class="nav-wrapper">
+          <div>
+            <img src="./assets/logo.svg" alt="logo" />
+          </div>
+
+          <div class="nav-links-wrapper">
+            <ul class="m-0 p-0">
+              <li>
+                <a href="/"> Home </a>
+              </li>
+              <li>
+                <a href="/blogs"> More Blogs </a>
+              </li>
+              <li>
+                <a href="./about.html"> About </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button class="action-btn">Subscribe</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- HEADER -->
+      <header>
+        <div class="header-wrapper">
+          <h6>About Us</h6>
+          <h1>Get to Know About Me!!</h1>
+        </div>
+      </header>
+      <article class="about-wrapper"> 
+        <p>
+          Pellentesque sit amet mauris purus. Mauris egestas molestie ex vel
+          gravida. Nam sem erat, tempor quis porttitor vitae, porttitor nec
+          metus. Class aptent taciti sociosqu ad litora torquent per conubia
+          nostra, per inceptos himenaeos. Mauris ultricies nisi bibendum nulla
+          euismod, nec pharetra lacus lobortis. Integer vitae lacus in leo
+          sagittis rutrum sit amet nec quam. Nullam sed diam et lectus
+          molestie tempor hendrerit in risus. Duis risus urna, imperdiet
+          condimentum neque vitae, elementum viverra odio. Nulla euismod
+          ornare luctus. Phasellus suscipit consectetur placerat. Suspendisse
+          quis mi ornare sapien porttitor pharetra at non metus. Sed ac
+          posuere augue, eu dictum nisi. Vestibulum iaculis congue risus, eget
+          dignissim justo euismod non.
+        </p>
+      </article>
+    </section>
+    <footer>&copy; <span id="date"></span> Obisike Treasure</footer>
+  </body>
+</html>
+<script>
+  document.getElementById("date").innerHTML = new Date().getFullYear();
+</script>
