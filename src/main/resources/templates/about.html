@@ -1,38 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/output.css" rel="stylesheet" />
-  </head>
+  <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
   <body>
     <section id="section-1">
       <!-- NAV -->
-      <nav>
-        <div class="nav-wrapper">
-          <div>
-            <img src="./assets/logo.svg" alt="logo" />
-          </div>
-
-          <div class="nav-links-wrapper">
-            <ul class="m-0 p-0">
-              <li>
-                <a href="/"> Home </a>
-              </li>
-              <li>
-                <a href="/blogs"> More Blogs </a>
-              </li>
-              <li>
-                <a href="./about.html"> About </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <button class="action-btn">Subscribe</button>
-          </div>
-        </div>
-      </nav>
+      <nav th:replace="~{_fragments::navbar()}"></nav>
 
       <!-- HEADER -->
       <header>
@@ -58,9 +30,7 @@
         </p>
       </article>
     </section>
-    <footer>&copy; <span id="date"></span> Obisike Treasure</footer>
+    <div th:insert="~{_fragments::footer_script}"></div>
   </body>
 </html>
-<script>
-  document.getElementById("date").innerHTML = new Date().getFullYear();
-</script>
+

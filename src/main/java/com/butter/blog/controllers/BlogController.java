@@ -1,6 +1,9 @@
 package com.butter.blog.controllers;
 
 import com.butter.blog.services.BlogService;
+import com.buttercms.model.PostsResponse;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,35 +21,45 @@ public class BlogController {
 
     @GetMapping("/")
     public String index(Model model) {
-        var blogs = this.blogService.getBlogs("4", "1").getData();
-        var first_post = blogs.remove(0);
-
-        model.addAttribute("first_post", first_post);
-        model.addAttribute("other_post", blogs);
-
-        System.out.println(blogs);
-        System.out.println(first_post);
+        var posts = this.blogService.getBlogs("2", "1");
+        model.addAttribute("posts", posts.getData());
         return "index";
     }
 
-
-    @GetMapping("/blogs")
-    public String getPosts(Model model, @RequestParam Map<String, String> req) {
-        String page = req.get("page") == null ? "1": req.get("page");
-        String pageSize = req.get("page_size") == null ? "10": req.get("page_size");
-
-        var blogs = this.blogService.getBlogs(pageSize, page).getData();
-        model.addAttribute("posts", blogs);
-
-        return "blogs";
+    @GetMapping("/search")
+    ResponseEntity<PostsResponse> search(@RequestParam("q") String query) {
+        var results = this.blogService.search(query);
+        return ResponseEntity.ok(results);
     }
 
-    @GetMapping("/blogs/{slug}")
-    public String getPost(Model model, @PathVariable String slug) {
-        var blog = this.blogService.getBlog(slug).getData();
-        model.addAttribute("post", blog);
 
-        return "blog";
+    @GetMapping("/posts")
+    public String getPosts(Model model, @RequestParam Map<String, String> req) {
+        try {
+            String page = req.get("page") == null ? "1": req.get("page");
+            String pageSize = req.get("page_size") == null ? "10": req.get("page_size");
+
+            var posts = this.blogService.getBlogs(pageSize, page).getData();
+            model.addAttribute("posts", posts);
+
+            return "posts";
+        } catch (Exception e) {
+            model.addAttribute("error", e);
+            return "error";
+        }
+    }
+
+    @GetMapping("/posts/{slug}")
+    public String getPost(Model model, @PathVariable String slug) {
+        try {
+            var blog = this.blogService.getBlog(slug).getData();
+            model.addAttribute("post", blog);
+
+            return "blog";
+        } catch (Exception e) {
+            model.addAttribute("error", e);
+            return "error";
+        }
     }
 
     @GetMapping("/about")

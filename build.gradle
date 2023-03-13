@@ -15,7 +15,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.buttercms:buttercmsclient:1.6'
+	implementation 'com.buttercms:buttercmsclient:1.11'
 	implementation 'io.github.cdimascio:dotenv-java:2.2.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

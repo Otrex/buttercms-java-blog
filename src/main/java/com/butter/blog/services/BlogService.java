@@ -1,6 +1,7 @@
 package com.butter.blog.services;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.buttercms.ButterCMSClient;
@@ -22,7 +23,14 @@ public class BlogService {
     private void setupButter() {
         Dotenv dotenv = Dotenv.load();
         this.buttterAPIKey = dotenv.get("BUTTERKEY");
-        this.butterCMSClient = new ButterCMSClient(this.buttterAPIKey);
+        this.butterCMSClient = new ButterCMSClient(this.buttterAPIKey, true);
+    }
+
+    public PostsResponse search(String search) {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("query", search);
+        
+        return this.butterCMSClient.getSearchPosts(params);
     }
 
 
@@ -31,8 +39,6 @@ public class BlogService {
         params.put("page", page);
         params.put("page_size", pageSize);
         params.put("exclude_body", "true");
-
-        System.out.println(this.butterCMSClient.getPosts(params));
 
         return this.butterCMSClient.getPosts(params);
     }

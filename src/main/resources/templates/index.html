@@ -1,111 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/output.css" rel="stylesheet" />
-  </head>
+  <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
   <body>
-    <section id="section-1">
+    <div class="cover">
       <!-- NAV -->
-      <nav>
-        <div class="nav-wrapper">
-          <div>
-            <img src="./assets/logo.svg" alt="logo" />
+      <nav th:replace="~{_fragments::navbar}"></nav>
+
+
+      <span th:text="${other_post}"></span>
+        <!-- ARTICLES -->
+      <div class="container"> 
+        <header class="pb-1rem">
+          <h1 class="large">Insights and Inspiration: Exploring the World Through Words</h1>
+          <h3>We Believe that Words have the Power to Transform Lives, and we're Committed to Bringing you the Very Best of what the Written Word has to Offer.
+            So, Join us Today and Let's Embark on a Journey of Discovery and Inspiration Together!"</h3>
+        </header>
+
+        <section class="latest">
+          <div class="grid-2">
+            <div th:each="post: ${posts}" th:insert="~{_fragments::blog_card(post=~{post})}"></div>
           </div>
-
-          <div class="nav-links-wrapper">
-            <ul class="m-0 p-0">
-              <li>
-                <a href="/"> Home </a>
-              </li>
-              <li>
-                <a href="/blogs"> More Blogs </a>
-              </li>
-              <li>
-                <a href="/about"> About </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <button class="action-btn">Subscribe</button>
-          </div>
-        </div>
-      </nav>
-
-      <!-- HEADER -->
-      <header>
-        <div class="header-wrapper">
-          <h6>Our Blog</h6>
-          <h1>Stories & Ideas</h1>
-          <h4>The latest news to drive your business</h4>
-        </div>
-      </header>
-
-      <!-- ARTICLES -->
-      <div class="article-wrapper">
-        <div class="wfull">
-          <a th:href="'/blogs/' + ${first_post.url}">
-            <article class="main">
-              <div class="img-wrapper">
-                <img th:src="${first_post.featuredImage}" alt="about" />
-              </div>
-              <div class="content">
-                <div class="type-bubble">Finance</div>
-                <span> 8 min to read</span>
-                <h3 th:text="${first_post.title}">The Best thing in the World</h3>
-
-                <div class="author-wrapper">
-                  <div class="author-img-wrapper">
-                    <img th:src="${first_post.author.profileImage}" onerror="this.style.display='none';" alt="profile image" />
-                  </div>
-                  <div class="author-desc-wrapper">
-                    <h4>
-                      <span th:text="${first_post.author.firstName}"></span> <span th:text="${first_post.author.lastName}"></span>
-                    </h4>
-                    <p>18th Feb, 2022</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </a>
-        </div>
-        <div class="wfull others">
-          <a th:each="blog: ${other_post}" th:href="'/blogs/' + ${blog.url}">
-      
-            <article>
-              <div class="img-wrapper">
-                <img th:src="${blog.featuredImage}" alt="about" />
-              </div>
-              <div class="content">
-                <div class="type-bubble"> Blog </div>
-                <span> &lt; 4min to read</span>
-                <h3 th:text="${blog.title}">The Best thing in the World</h3>
-
-                <div class="author-wrapper">
-                  <div class="author-img-wrapper">
-                    <img th:src="${blog.author.profileImage}" onerror="this.style.display='none';" alt="profile image" />
-                  </div>
-                  <div class="author-desc-wrapper">
-                    <h4>
-                      <span th:text="${blog.author.firstName}"></span> <span th:text="${blog.author.lastName}"></span>
-                    </h4>
-                    <p>18th Feb, 2022</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </a>
-          <article>
-            <div class="view-blogs"><a href="./blogs">View More Blogs</a></div>
-          </article>
-        </div>
+          <h1></h1>
+        </section>
+        <section class="blogs"></section>
       </div>
-    </section>
-    <footer>&copy; <span id="date"></span> Obisike Treasure</footer>
+    </div>
+
+    <div th:insert="~{_fragments::footer_script}"></div>
   </body>
 </html>
-<script>
-  document.getElementById("date").innerHTML = new Date().getFullYear();
-</script>
+
