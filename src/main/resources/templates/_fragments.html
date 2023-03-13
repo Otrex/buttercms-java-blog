@@ -39,7 +39,7 @@
       <div class="navigation">
         <ul class="$flex row">
           <li><a href="/">Home</a></li>
-          <li><a href="/posts">More Blogs</a></li>
+          <li><a href="/posts">More Blog Posts</a></li>
           <li><a href="/about">About Us</a></li>
         </ul>
       </div>
@@ -47,8 +47,8 @@
 
     <div class="$flex row-p"> 
       <div class="search">
-        <form method="get" class="$flex row-p">
-          <input type="text" class="search" placeholder="Search..." />
+        <form method="get" action="/search" class="$flex row-p">
+          <input type="text" class="search" name="q" placeholder="Search..." />
           <div> 
             <button type="submit" class="btn">
               <span class="white-text material-symbols-outlined"> search </span>

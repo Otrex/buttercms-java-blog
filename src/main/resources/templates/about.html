@@ -2,9 +2,9 @@
 <html>
   <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
   <body>
-    <section id="section-1">
+    <div class="cover container">
       <!-- NAV -->
-      <nav th:replace="~{_fragments::navbar()}"></nav>
+      <nav th:replace="~{_fragments::navbar}"></nav>
 
       <!-- HEADER -->
       <header>
@@ -29,7 +29,7 @@
           dignissim justo euismod non.
         </p>
       </article>
-    </section>
+    </div>
     <div th:insert="~{_fragments::footer_script}"></div>
   </body>
 </html>

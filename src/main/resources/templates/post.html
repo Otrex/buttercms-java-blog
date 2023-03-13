@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head th:replace="~{_fragments::head(title=~{post.title}, author=~{post.author.firstName}, keywords=~{null}, desc=~{post.summary})}"></head>
+  <body>
+    <div class="cover">
+      <!-- NAV -->
+      <nav th:replace="~{_fragments::navbar}"></nav>
+
+      <div class="container white p-1rem"> 
+        <header class="pb-1rem">
+          <h1 class="large" th:text="${post.title}">The Art of Letting Go: How to Release Attachments and Embrace Change</h1>
+          <h3>By <span th:text="${post.author.firstName} + ' ' + ${post.author.lastName}" ></span></h3>
+        </header>
+        <section class="latest">
+          <div class="white blog-card">
+            <span class="tagline">Trending</span>
+            <div>
+              <div class="blog-image"> 
+                <img th:src="${post.featuredImage}" alt="cover image" />
+              </div>
+            </div>
+            <div class="blog-text pb-1rem" th:utext="${post.body}"></div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+    <div th:insert="~{_fragments::footer_script}"></div>
+  </body>
+</html>
+

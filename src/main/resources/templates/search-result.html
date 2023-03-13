@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
+  <body>
+    <div class="cover">
+      <nav th:replace="~{_fragments::navbar}"></nav>
+      <div class="container"> 
+        <header class="pb-1rem">
+          <h1 class="large">Search Results</h1>
+        </header>
+        <section class="latest">
+          <div class="grid-3">
+            <div th:each="post: ${posts}" th:insert="~{_fragments::blog_card(post=~{post})}"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div th:insert="~{_fragments::footer_script}"></div>
+  </body>
+</html>

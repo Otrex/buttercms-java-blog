@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div class="error">
-    Error: <span th:text="${error}"></span>
-  </div>
-</body>
+<html>
+  <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
+  <body>
+    <div class="cover container">
+      <!-- NAV -->
+      <nav th:replace="~{_fragments::navbar}"></nav>
+
+      <!-- HEADER -->
+      <header>
+        <div class="header-wrapper">
+          <h1>Error</h1>
+          <h2 th:text="${error}"></h2>
+        </div>
+      </header>
+    </div>
+    <div th:insert="~{_fragments::footer_script}"></div>
+  </body>
 </html>
+

@@ -32,9 +32,16 @@ public class BlogController {
     }
 
     @GetMapping("/search")
-    ResponseEntity<PostsResponse> search(@RequestParam("q") String query) {
-        var results = this.blogService.search(query);
-        return ResponseEntity.ok(results);
+    public String search(Model model, @RequestParam("q") String query) {
+        try {
+            var results = this.blogService.search(query).getData();
+            model.addAttribute("posts", results);
+
+            return "search-result";
+        } catch (Exception e) {
+            model.addAttribute("error", e);
+            return "error";
+        }
     }
 
 
@@ -57,10 +64,10 @@ public class BlogController {
     @GetMapping("/posts/{slug}")
     public String getPost(Model model, @PathVariable String slug) {
         try {
-            var blog = this.blogService.getBlog(slug).getData();
-            model.addAttribute("post", blog);
+            var post = this.blogService.getBlog(slug).getData();
+            model.addAttribute("post", post);
 
-            return "blog";
+            return "post";
         } catch (Exception e) {
             model.addAttribute("error", e);
             return "error";
