@@ -21,9 +21,14 @@ public class BlogController {
 
     @GetMapping("/")
     public String index(Model model) {
-        var posts = this.blogService.getBlogs("2", "1");
-        model.addAttribute("posts", posts.getData());
-        return "index";
+        try {
+            var posts = this.blogService.getBlogs("2", "1");
+            model.addAttribute("posts", posts.getData());
+            return "index";
+        } catch (Exception e) {
+            model.addAttribute("error", e);
+            return "error";
+        }
     }
 
     @GetMapping("/search")

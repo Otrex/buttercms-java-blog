@@ -2,51 +2,19 @@
 <html>
   <head th:replace="~{_fragments::head(title=~{null}, author=~{null}, keywords=~{null}, desc=~{null})}"></head>
   <body>
-    <section id="section-1">
-      <!-- NAV -->
-      <nav th:replace="~{_fragments::navbar()}"></nav>
-
-      <!-- HEADER -->
-      <header>
-        <div class="header-wrapper blog">
-          <h6></h6>
-          <h1>All Blogs</h1>
-          <h4>The latest news to drive your business</h4>
-
-          <input class="search-input">
-        </div>
-      </header>
-
-      <!-- ARTICLES -->
-      <div class="blog-list-wrapper">
-        <div class="blog-card" th:each="post: ${posts}">
-          <a th:href="'/blogs/' + ${post.url}">
-            <article>
-              <div class="img-wrapper">
-                <img th:src="${post.featuredImage}" alt="about" />
-              </div>
-              <div class="content">
-                <div class="type-bubble"> Blog </div>
-                <span> &lt; 4 min to read</span>
-                <h3 th:text="${post.title}">The Best thing in the World</h3>
-
-                <div class="author-wrapper">
-                  <div class="author-img-wrapper" style="background: grey;">
-                    <img th:src="${post.author.profileImage}" onerror="this.style.display='none';"  alt="profile image" />
-                  </div>
-                  <div class="author-desc-wrapper">
-                    <h4>
-                      <span th:text="${post.author.firstName}"></span> <span th:text="${post.author.lastName}"></span>
-                    </h4>
-                    <p>18th Feb, 2022</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </a>
-        </div>
+    <div class="cover">
+      <nav th:replace="~{_fragments::navbar}"></nav>
+      <div class="container"> 
+        <header class="pb-1rem">
+          <h1 class="large">Latest Posts</h1>
+        </header>
+        <section class="latest">
+          <div class="grid-3">
+            <div th:each="post: ${posts}" th:insert="~{_fragments::blog_card(post=~{post})}"></div>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
     <div th:insert="~{_fragments::footer_script}"></div>
   </body>
 </html>
